@@ -1,15 +1,15 @@
 /**
  * Stateless functional component for generating an individual book
  */
- import React from 'react';
- import ManageBook from './ManageBook.js';
+import React from 'react';
+import ManageBook from './ManageBook.js';
 
- const Book = ({book}) => {
+const Book = ({book, id}) => {
     // build book style and return book, unless no book is passed
     const bookStyle = {width: 128, height: 193, backgroundImage: `url(${book ? book.imageLinks.thumbnail : ''})`};
     return (
         book ?
-        <li>
+        <li key={id}>
             <div className="book">
             <div className="book-top">
                 <div className="book-cover" style={bookStyle}></div>
