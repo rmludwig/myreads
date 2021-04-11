@@ -113,6 +113,16 @@ body, .app {
   outline: none;
 }
 
+.close-search:hover {
+  border: 2px solid seagreen;
+}
+
+.close-search:active {
+  border: 2px solid seagreen;
+  box-shadow: 0 2px #666;
+  transform: translateY(1px);
+}
+
 button:active {
   border: red;
   outline: none;
