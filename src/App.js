@@ -1,18 +1,22 @@
 import React from 'react';
-// import * as BooksAPI from './BooksAPI'
+import * as BooksAPI from './BooksAPI'
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 import './App.css';
+import Book from './Book.js';
 import ManageBook from './ManageBook.js';
 
 class BooksApp extends React.Component {
   state = {
-    /**
-     * TODO: Instead of using this state variable to keep track of which page
-     * we're on, use the URL in the browser's address bar. This will ensure that
-     * users can use the browser's back and forward buttons to navigate between
-     * pages, as well as provide a good URL they can bookmark and share.
-     */
-    //showSearchPage: false
+    books: []
+  }
+  componentDidMount() {
+    BooksAPI.getAll()
+      .then((books) => {
+        this.setState(() => ({
+          books
+        }))
+        console.log(this.state.books)
+      })
   }
 
   render() {
@@ -42,6 +46,7 @@ class BooksApp extends React.Component {
                 </div>
               </div>
             </Route>
+            {/* --- THIS IS THE SHELF --- */}
             <Route exact path='/'>
               <div className="list-books">
                 <div className="list-books-title">
@@ -53,6 +58,7 @@ class BooksApp extends React.Component {
                       <h2 className="bookshelf-title">Currently Reading</h2>
                       <div className="bookshelf-books">
                         <ol className="books-grid">
+                          {/*
                           <li>
                             <div className="book">
                               <div className="book-top">
@@ -63,6 +69,8 @@ class BooksApp extends React.Component {
                               <div className="book-authors">Harper Lee</div>
                             </div>
                           </li>
+                          */}
+                          {/*}
                           <li>
                             <div className="book">
                               <div className="book-top">
@@ -73,6 +81,9 @@ class BooksApp extends React.Component {
                               <div className="book-authors">Orson Scott Card</div>
                             </div>
                           </li>
+                          */}
+                          <Book book={this.state.books[0]}/>
+                          <Book book={this.state.books[1]}/>
                         </ol>
                       </div>
                     </div>
