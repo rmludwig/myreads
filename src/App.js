@@ -15,10 +15,7 @@ class BooksApp extends React.Component {
         this.setState(() => ({
           books
         }));
-        console.log(this.state.hasLoaded);
         this.setState({hasLoaded: true});
-        console.log(this.state.hasLoaded);
-        console.log(this.state.books);
       })
   }
   fetchBooksByShelf = (shelfName) => this.state.books.filter((book) => (book.shelf === shelfName));
@@ -59,7 +56,7 @@ class BooksApp extends React.Component {
                 {/* --- THIS GENERATES SHELF IF BOOKS ARE FOUND --- */}
                 {this.state.hasLoaded ?
                   this.state.books.length > 0 ?
-                    <BookCase shelves= {['currentlyReading', 'wantToRead', 'read']} books={this.state.books} fetchBooks={this.fetchBooksByShelf} />
+                    <BookCase shelves= {['currentlyReading', 'wantToRead', 'read']} fetchBooks={this.fetchBooksByShelf} />
                     :<div className="user-message">
                       <h2>
                         <div>No books found for this User.</div>
