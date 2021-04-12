@@ -3,6 +3,10 @@
  */
 import React from 'react';
 
+/**
+ * @description Used to build the book management element for a book
+ * @returns React BookManagement element
+ */
 const ManageBook = () => {
     return (
         <div className="book-shelf-changer">
