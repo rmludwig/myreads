@@ -10,9 +10,10 @@ import Book from './Book.js';
  * @description Builds the book shelf element representing a collection of books.
  * @param {string} shelfType - used for shelf heading and in query
  * @param {func} booksOnShelf - callback to fetch the books for this shelf
+ * @param {func} updateBookLocation - callback function used to update a book location
  * @returns React BookShelf element
  */
-const BookShelf = ({shelfType, booksOnShelf}) => {
+const BookShelf = ({shelfType, booksOnShelf, updateBookLocation}) => {
     let shelfTitle = "Empty Shelf";
     switch (shelfType) {
         case "currentlyReading":
@@ -33,7 +34,7 @@ const BookShelf = ({shelfType, booksOnShelf}) => {
             <h2 className="bookshelf-title">{shelfTitle}</h2>
             <div className="bookshelf-books">
                 <ol className="books-grid">
-                    {books.length > 0 ? books.map((book) => ( <Book book={book} key={book.id}/> )) : ''}
+                    {books.length > 0 ? books.map((book) => ( <Book book={book} key={book.id} updateBookLocation={updateBookLocation} /> )) : ''}
                 </ol>
             </div>
         </div>
