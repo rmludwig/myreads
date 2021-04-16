@@ -1,3 +1,51 @@
+# README for Rich Ludwig's MyReads Project
+
+
+## Installing the Application
+1. Clone the repo from https://github.com/rmludwig/myreads.git.
+   Example: `git clone https://github.com/rmludwig/myreads.git`
+2. Change to the new directory `cd myreads`.
+3. Run `npm install`.
+
+
+## Running the Application
+1. Run the development server with `npm start`.
+2. Open the app in a browser using URL like http://localhost:3000/
+
+
+## Using the application
+In this application, the main page displays a list of "shelves" (i.e. categories), each of which contains a number of books. Each book has a control that lets you select the shelf for that book. When you select a different shelf, the book moves there.
+
+The main page also has a link to /search, a search page that allows you to find books to add to your library. The search page has a text input that may be used to find books. As the value of the text input changes, the books that match that query are displayed on the page, along with a control that lets you add the book to your library. If the searched book is on a bookshelf, it will have the same location on the search page.
+
+The search page also has a link to / (the root URL), which leads back to the main page. When you navigate back to the main page from the search page, you will see all of the selections you made on the search page in your library.
+
+
+## Added Features
+- Added CSS for the "home" or "back" button on the search page.
+- Added a "No books found" message if there are no books in the library.
+- Allowed display of empty shelf only if at least one book is found on other shelves.
+
+
+## Components
+Below is a map of the components I used in my app.
+
+```bash
+App.js                        # React Application
+├── SearchForBooks.js         # Search component manages search and results
+│   └── SearchResults.js      # Used for presenting a group of books (like shelf)
+│       └── Book.js           # Instance of a book (reused below)
+│           └── ManageBook.js # control for a book instance (reused below)
+└── BookCase.js               # A collection of book shelves
+    └── BookShelf.js          # A collection of books aka a shelf
+        └── Book.js           # Instance of a book (same as above)
+            └── ManageBook.js # control for a book instance (same as above)
+```
+
+
+---------------------------------------------------------------------
+*All info below was a part of initial README for the MyReads project*
+
 # MyReads Project
 
 This is the starter template for the final assessment project for Udacity's React Fundamentals course. The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. If you choose to start with this template, your job will be to add interactivity to the app by refactoring the static code in this template.
