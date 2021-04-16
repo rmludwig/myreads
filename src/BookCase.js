@@ -17,7 +17,7 @@ const BookCase = ({fetchBooks, shelves, haveBooksLoaded, quantityBooks, updateBo
     return (
         <div className="list-books-content">
             <div>
-                {haveBooksLoaded && (quantityBooks > 0) && 
+                {haveBooksLoaded && (quantityBooks > 0) &&
                     shelves.map((shelf) => <BookShelf key={shelf} shelfType={shelf} booksOnShelf={fetchBooks} updateBookLocation={updateBookLocation} />)
                 }
                 {haveBooksLoaded && (quantityBooks === 0) && (

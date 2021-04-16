@@ -28,9 +28,8 @@ class SearchForBooks extends React.Component {
                     this.setState(() => ({
                         results
                     }));
-                })
-        }
-        else {
+                });
+        } else {
             this.setState({results: []});
         }
     }
@@ -38,8 +37,7 @@ class SearchForBooks extends React.Component {
     synchronizeBooksAndResults(results, books) {
         if (! Array.isArray(results) || results.length < 1) {
             return [];
-        }
-        else {
+        } else {
             results.forEach((found_book) => {
                 const book_match = books.filter((book) => found_book.id === book.id);
                 if (book_match.length === 1) {

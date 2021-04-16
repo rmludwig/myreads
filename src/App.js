@@ -26,7 +26,7 @@ class BooksApp extends React.Component {
                     books
                 }));
                 this.setState({hasLoaded: true});
-            })
+            });
     }
     /* Function to move a book to a new shelf.
      * In order to get the most accurate state of
@@ -40,7 +40,7 @@ class BooksApp extends React.Component {
             .then((response) => {
                 //self.reStockShelf();
                 this.reStockShelf();
-            })
+            });
     }
     /* Function to collect the books related to a given shelf */
     fetchBooksByShelf = (shelfName) => this.state.books.filter(

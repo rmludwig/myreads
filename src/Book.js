@@ -23,7 +23,7 @@ const Book = ({book, id, updateBookLocation}) => {
     if (! authorText) {
         /* the below code can be un-commented to identify books without author */
         /*console.log("bad book = ", book.id, " title = ", book.title); */
-    };
+    }
     /* function to move shelf pointer */
     const moveToShelf = (shelf) => {
         book.shelf = shelf;
@@ -34,7 +34,7 @@ const Book = ({book, id, updateBookLocation}) => {
         <li key={id}>
             <div className="book">
             <div className="book-top">
-                <div className="book-cover" style={bookStyle}></div>
+                <div className="book-cover" style={bookStyle} alt="some text"></div>
                 <ManageBook  id={book.id} location={book.shelf ? book.shelf : 'none'} updateBookLocation={updateBookLocation} moveToShelf={moveToShelf} />
             </div>
             <div className="book-title">{book.title}</div>
