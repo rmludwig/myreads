@@ -25,6 +25,7 @@ The search page also has a link to / (the root URL), which leads back to the mai
 - Added CSS for the "home" or "back" button on the search page.
 - Added a "No books found" message if there are no books in the library.
 - Allowed display of empty shelf only if at least one book is found on other shelves.
+- Added Throttling for smoother behavior in search page.
 
 
 ## Components

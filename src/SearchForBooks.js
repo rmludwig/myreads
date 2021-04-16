@@ -4,6 +4,7 @@
  */
 import React from 'react';
 import {Link} from "react-router-dom";
+import { throttle } from 'throttle-debounce';
 import * as BooksAPI from './BooksAPI'
 import SearchResults from './SearchResults.js';
 
@@ -20,8 +21,12 @@ class SearchForBooks extends React.Component {
     }
     /* Function to use API to load books and call sync function */
     fetchMatchingBooks(event) {
-        if (event.target.value) {
-            BooksAPI.search(event.target.value)
+        this.throttledUpdate(event.target.value);
+    }
+    /* throttle reducing the API calls and to smooth out performance */
+    throttledUpdate = throttle(1000, (value) => {
+        if (value) {
+            BooksAPI.search(value)
                 .then((query_results) => {
                     /* filter on id in order to set known shelf status */
                     const results = this.synchronizeBooksAndResults(query_results, this.props.books);
@@ -32,7 +37,7 @@ class SearchForBooks extends React.Component {
         } else {
             this.setState({results: []});
         }
-    }
+    });
     /* function to synchronize the shelf value from known books to search results */
     synchronizeBooksAndResults(results, books) {
         if (! Array.isArray(results) || results.length < 1) {
