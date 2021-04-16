@@ -1,7 +1,7 @@
 /**
  * Stateless functional component for generating a shelf with many books
  *
- * BookShelf a shelf for holding multiple books, as long as some are found in the list.
+ * BookShelf is a shelf for holding multiple books, as long as some are found in the list.
  */
 import React from 'react';
 import Book from './Book.js';
@@ -41,4 +41,4 @@ const BookShelf = ({shelfType, booksOnShelf, updateBookLocation}) => {
     );
 }
 
-export default BookShelf
+export default BookShelf;

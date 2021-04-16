@@ -9,13 +9,15 @@ import React from 'react';
  * @param {string} location - current book position / shelf
  * @param {string} id - the ID for the book using this component
  * @param {func} updateBookLocation - callback function used to update a book location
+ * @param {func} moveToShelf - callback to adjust the shelf of the current book
  * @returns React BookManagement element
  */
- class ManageBook extends React.Component {
+class ManageBook extends React.Component {
     /* Update function to handle shelf change using callback */
     update = (event) => {
         event.preventDefault();
         const selection = event.target;
+        this.props.moveToShelf(selection.value);
         /* props, including props.id, is passed here to reduce the size of data sent to api */
         this.props.updateBookLocation(this.props, selection.value);
     }
@@ -35,4 +37,4 @@ import React from 'react';
     }
 }
 
-export default ManageBook
+export default ManageBook;

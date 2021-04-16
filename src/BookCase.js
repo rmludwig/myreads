@@ -33,4 +33,4 @@ const BookCase = ({fetchBooks, shelves, haveBooksLoaded, quantityBooks, updateBo
     );
 }
 
-export default BookCase
+export default BookCase;
